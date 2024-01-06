@@ -10,6 +10,7 @@ import typescript from "highlight.js/lib/languages/typescript";
 hljs.registerLanguage("typescript", typescript);
 hljs.highlightAll();
 
+const appConfig = {};
 const editor = document.querySelector("#editor");
 const output = document.querySelector("#output pre code");
 
@@ -18,7 +19,7 @@ function generateDto(rawInput) {
 		const fixJson = jsonrepair(rawInput);
 		const jsonBody = JSON.parse(fixJson);
 
-		const nestDto = NestJsonToDto.setBody(jsonBody).generate();
+		const nestDto = NestJsonToDto.setConfig(appConfig).setBody(jsonBody).generate();
 
 		output.textContent = nestDto;
 
@@ -73,3 +74,21 @@ function selectText(element) {
 	selection.removeAllRanges();
 	selection.addRange(range);
 }
+
+document.getElementById("settingsButton").addEventListener("click", function () {
+	const myDiv = document.getElementById("settingsSection");
+	myDiv.classList.toggle("hidden"); // Toggle the 'hidden' class
+});
+
+function handleSettingsUpdate(event) {
+	const inputId = event.target.id;
+	const inputValue = event.target.value;
+
+	if (editor.value) {
+		appConfig[inputId] = inputValue;
+		generateDto(editor.value);
+	}
+}
+document.getElementById("baseClassName").addEventListener("input", handleSettingsUpdate);
+document.getElementById("classNamesSeparator").addEventListener("input", handleSettingsUpdate);
+document.getElementById("classNamesSuffix").addEventListener("input", handleSettingsUpdate);
