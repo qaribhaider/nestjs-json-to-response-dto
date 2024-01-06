@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/nestjs-json-to-response-dto/assets/javascript-K1GuoJ1s.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JSON to NestJS DTO Convertor</title>
+		<script type="module" crossorigin src="/nestjs-json-to-response-dto/assets/index-vPKfQgHs.js"></script>
+		<link rel="stylesheet" crossorigin href="/nestjs-json-to-response-dto/assets/index-x_hwiCuL.css">
+	</head>
+	<body>
+		<div class="max-w-screen-xl mx-auto px-5 py-5">
+			<div class="m-4">
+				<h1 class="text-3xl lg:text-4xl font-bold lg:tracking-tight xl:tracking-tighter">JSON to NestJS DTO Convertor</h1>
+				<p class="text-lg mt-4 text-slate-600">
+					Utility to convert JSON to a NestJS response DTO. Useful for creating open api specifications for contract testing,
+					while dealing with external APIs where you do not have a response shape defined already
+				</p>
+			</div>
+		</div>
+
+		<div class="max-w-screen-xl mx-auto px-5 pb-5" id="dropzone">
+			<div class="flex">
+				<textarea
+					id="editor"
+					class="max-h-96 outline-none focus:ring-0 bg-white border-black border-2 dark:border-0 dark:bg-base-200 w-1/2 h-1/2 p-4 m-4 font-mono text-sm"
+					rows="20"
+				></textarea>
+				<div id="output" class="w-1/2 overflow-auto m-4">
+					<pre><code class="language-typescript hljs text-wrap overflow-x-hidden h-96 max-h-96 text-sm">// Paste raw JSON output from your API
+// in the editor on the left side
+// 
+// OR just drag and drop a json file here
+          </code></pre>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
